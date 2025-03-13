@@ -1,4 +1,4 @@
-# DeFi Yield Farming Assistant
+![Banner](https://github.com/user-attachments/assets/87b8106f-6537-49a0-865e-bcda05968f85)
 
 The **DeFi Yield Farming Assistant** is an intelligent tool that scans Aptos blockchain protocols (Joule, Thala, Amnis, Echo) to calculate the best yield farming opportunities. It leverages AI to recommend optimal farming strategies with risk analysis.
 
