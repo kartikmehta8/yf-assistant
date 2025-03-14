@@ -15,7 +15,14 @@ export class AmnisAgent {
 	 */
 	async getProtocolTVL(): Promise<number> {
 		try {
-			const response = await fetch('https://api.amnis.finance/v1/staking/stats')
+			const response = await fetch('https://api.amnistreasury.com/api/transactions', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					// Bearer token for Amnis API.
+					'Authorization': 'Bearer AMNIS_API_TOKEN',
+				}
+			})
 			const data = await response.json()
 			return data.totalStaked || 0
 		} catch (error) {
@@ -31,7 +38,14 @@ export class AmnisAgent {
 	 */
 	async getYieldInfo(token: string): Promise<YieldInfo> {
 		try {
-			const response = await fetch('https://api.amnis.finance/v1/staking/stats')
+			const response = await fetch('https://api.amnistreasury.com/api/fx_transaction_details', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					// Bearer token for Amnis API
+					'Authorization': 'Bearer AMNIS_API_TOKEN',
+				}
+			})
 			const data = await response.json()
 
 			return {

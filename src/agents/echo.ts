@@ -1,3 +1,7 @@
+// POC for ECHO protocol integration.
+// This agent provides functionality for interacting with the Echo protocol.
+// It can fetch yield information, stake, and unstake tokens in the protocol.
+
 import { AgentRuntime } from 'move-agent-kit'
 import { YieldInfo } from '../types'
 import { logger } from '../utils/logger'
@@ -16,7 +20,7 @@ export class EchoAgent {
 	 */
 	async getProtocolTVL(): Promise<number> {
 		try {
-			const response = await fetch('https://api.echo.finance/v1/pools')
+			const response = await fetch('ECHO ENDPOINT')
 			const data = await response.json()
 			return data.totalTVL || 0
 		} catch (error) {
@@ -33,7 +37,7 @@ export class EchoAgent {
 	 */
 	async getYieldInfo(token: string): Promise<YieldInfo> {
 		try {
-			const response = await fetch('https://api.echo.finance/v1/pools')
+			const response = await fetch('ECHO ENDPOINT')
 			const data = await response.json()
 
 			const poolInfo = data.pools.find((p: any) => p.token === token)

@@ -16,7 +16,7 @@ export class ThalaAgent {
 	 */
 	async getProtocolTVL(): Promise<number> {
 		try {
-			const response = await fetch('https://api.thala.fi/v1/analytics')
+			const response = await fetch('https://app.thala.fi/stats')
 			const data = await response.json()
 			return data.totalTVL || 0
 		} catch (error) {
@@ -33,7 +33,7 @@ export class ThalaAgent {
 	 */
 	async getYieldInfo(token: string): Promise<YieldInfo> {
 		try {
-			const response = await fetch('https://api.thala.fi/v1/analytics')
+			const response = await fetch('https://app.thala.fi/stats')
 			const data = await response.json()
 
 			const poolInfo = data.pools.find((p: any) => p.token === token)
